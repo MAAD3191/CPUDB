@@ -16,7 +16,7 @@ namespace CPUDB.View
         
         CPUBusiness cpuBusiness;
         private int closeOperationId = 5;
-        public Display(CPUContext context)
+        public Display(CPUContext context) //imam rak
         {
             cpuBusiness = new CPUBusiness(context);
             Input();
