@@ -15,7 +15,7 @@ namespace CPUDB.View
     {
         
         CPUBusiness cpuBusiness;
-        private int closeOperationId = 5;
+        private int closeOperationId = 6;
         public Display(CPUContext context) //imam rak
         {
             cpuBusiness = new CPUBusiness(context);
@@ -124,9 +124,12 @@ namespace CPUDB.View
                         break;
                     case 5:
                         Console.Clear();
+                        break;
+                    case 6:
+                        Console.Clear();
                         Console.WriteLine("Goodbye!");
                         break;
-
+                    
                 }
 
                 
@@ -143,15 +146,16 @@ namespace CPUDB.View
         private void MainMenu()
         {
             Console.WriteLine(" __ __  ___  _ _  _ _ " +
-                       "\r\n|  \\  \\| __>| \\ || | |" +
+                          "\r\n|  \\  \\| __>| \\ || | |" +
                           "\r\n|     || _> |   || ' |" +
-                         "\r\n|_|_|_||___>|_\\_|`___'" +
+                          "\r\n|_|_|_||___>|_\\_|`___'" +
                           "\r\n                      ");
             Console.WriteLine("1. Add");
             Console.WriteLine("2. Update");
             Console.WriteLine("3. Delete");
             Console.WriteLine("4. List");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("5. Clear History");
+            Console.WriteLine("6. Exit");
         }
         private void AddMenu()
         {
@@ -358,11 +362,11 @@ namespace CPUDB.View
             int id = int.Parse(Console.ReadLine()); 
             CPUItem cpu = cpuBusiness.GetCPU(id);
             Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Id | Brand | Model | Clock Speed | Cores | Threads");
+            Console.WriteLine("Id | Brand | Model          | Clock Speed | Cores | Threads");
             Console.WriteLine("---------------------------------------------------");
             if (cpu != null)
             {
-                Console.WriteLine(String.Format("{0,-2} | {1,-5} | {2,-5} | {3,-11} | {4,-5} | {5,-6}", cpu.Id, cpu.Brand.Name, cpu.Model.Name, cpu.Clock_speed, cpu.Core_amount, cpu.Thread_amount));
+                Console.WriteLine(String.Format("{0,-2} | {1,-5} | {2,-15} | {3,-11} | {4,-5} | {5,-6}", cpu.Id, cpu.Brand.Name, cpu.Model.Name, cpu.Clock_speed, cpu.Core_amount, cpu.Thread_amount));
             }
         }
         private void ListCPUModel()
